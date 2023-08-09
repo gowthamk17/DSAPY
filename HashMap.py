@@ -1,7 +1,7 @@
 class HashMap():
     def __init__(self):
         self.MAX = 100
-        self.arr = [None for i in range(self.MAX)]
+        self.arr = [[] for i in range(self.MAX)]
 
     def __get_hash(self, key):
         h = 0
@@ -11,21 +11,32 @@ class HashMap():
 
     def __setitem__(self, key, value):
         h = self.__get_hash(key)
-        self.arr[h] = value
+        found = False
+        for idx, element in enumerate(self.arr[h]):
+            if len(element) == 2 and element[0] == key:
+                self.arr[h][idx] = (key, value)
+                found = True
+                break
+        if not found:
+            self.arr[h].append((key,value))       
 
     def __getitem__(self, key):
         h = self.__get_hash(key)
-        return self.arr[h]
+        for element in self.arr[h]:
+            if element[0] == key:
+                return element[1]
 
     def __delitem__(self, key):
         h = self.__get_hash(key)
-        self.arr[h] = None
+        for idx, element in enumerate(self.arr[h]):
+            if element[0] == key:
+                del self.arr[h][idx]
 
 
 if __name__ == "__main__":
-    hm = HashMap()
-    hm["user1"] = 2345
-    hm["user2"] = 5674
-    print(hm["user1"])
-    del hm["user1"]
-    print(hm["user1"])
+    hMap = HashMap()
+    hMap["march"] = 2345
+    hMap["mardg"] = 5674
+    print(hMap["march"])
+    del hMap["mardg"]
+    print(hMap["mardg"])
