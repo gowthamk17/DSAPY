@@ -81,6 +81,26 @@ class BinarySearchTree:
             elements += self.right.pre_order_traversal()
         return elements
 
+    def delete(self, val):
+        if val < self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val > self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        else:
+            if self.right is None and self.left is None:
+                return None
+            if self.left is None:
+                return self.right
+            if self.right is None:
+                return self.left
+            
+            min_val = self.right.find_min()
+            self.data = min_val
+            self.right = self.right.delete(min_val )
+        return self
+
 
 if __name__ == '__main__':
     root = BinarySearchTree(17)
@@ -88,11 +108,14 @@ if __name__ == '__main__':
     for n in nums:
         root.add_child(n)
     print(f"In Order Traversal: {root.in_order_traversal()}")
-    print(f"Post Order Traversal: {root.post_order_traversal()}")
-    print(f"Pre Order Traversal: {root.pre_order_traversal()}")
-    print(f"Minimum element in Entire Tree: {root.find_min()}")
-    print(f"Maximum element in Entire Tree: {root.find_max()}")
-    print(f"sum of the all element in the Tree: {root.calculate_sum()}")
-    print(f"Is 20 exist in Tree: {root.search(20)}")
-    print(f"Is 89 exist in Tree: {root.search(89)}")
+    # print(f"Post Order Traversal: {root.post_order_traversal()}")
+    # print(f"Pre Order Traversal: {root.pre_order_traversal()}")
+    # print(f"Minimum element in Entire Tree: {root.find_min()}")
+    # print(f"Maximum element in Entire Tree: {root.find_max()}")
+    # print(f"sum of the all element in the Tree: {root.calculate_sum()}")
+    # print(f"Is 20 exist in Tree: {root.search(20)}")
+    # print(f"Is 89 exist in Tree: {root.search(89)}")
+    root.delete(17)
+    print(f"In Order Traversal: {root.in_order_traversal()}")
+
 
