@@ -10,3 +10,4 @@ Python Implement of the Data Structures and Algotithms
     5. HashMap
     6. Tree
     7. BinarySearchTree
+    8. Graph
