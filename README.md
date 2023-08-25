@@ -15,3 +15,5 @@ Python Implement of the Data Structures and Algorithms
 ## Implemented Algorithms
     1. BinarySearch
     2. BubbleSort
+    3. QuickSort
+    4. InsertionSort
