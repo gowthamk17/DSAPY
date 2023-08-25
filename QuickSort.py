@@ -1,6 +1,6 @@
 def quick_sort(array, start, end):
     if start < end:
-        pi = partition(array, start, end)
+        pi = lomuto_partition(array, start, end)
         quick_sort(array, start, pi - 1)
         quick_sort(array, pi + 1, end)
 
@@ -22,18 +22,27 @@ def partition(array, start, end):
 
 def lomuto_partition(array, start, end):
     pivot = array[end]
-    j = start
-    i = start - 1
-    while j < end:
-        while array[j] >= pivot and j < end:
-            j += 1
-        i += 1
-        swap(array, i, j)
-        j += 1
-    i += 1
-    swap(array, i, end)
+    p_index = start
+    for i in range(start, end):
+        if array[i] <= pivot:
+            swap(array, i, p_index)
+            p_index += 1
+    swap(array, p_index, end)
 
-    return i
+    return p_index
+
+    # using while loop
+    # j = start
+    # i = start - 1
+    # while j < end:
+    #     while array[j] >= pivot and j < end:
+    #         j += 1
+    #     i += 1
+    #     swap(array, i, j)
+    #     j += 1
+    # i += 1
+    # swap(array, i, end)
+    # return i
 
 
 def swap(array, a, b):
