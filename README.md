@@ -17,3 +17,6 @@ Python Implement of the Data Structures and Algorithms
     2. BubbleSort
     3. QuickSort
     4. InsertionSort
+    5. MergeSort
+    6. ShellSort
+    7. SelectionSort
