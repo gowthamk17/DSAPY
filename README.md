@@ -1,6 +1,6 @@
 # DSAPY
 
-Python Implement of the Data Structures and Algotithms
+Python Implement of the Data Structures and Algorithms
 
 ## Implemented DataStructures:
     1. Stack
@@ -11,3 +11,7 @@ Python Implement of the Data Structures and Algotithms
     6. Tree
     7. BinarySearchTree
     8. Graph
+
+## Implemented Algorithms
+    1. BinarySearch
+    2. BubbleSort
