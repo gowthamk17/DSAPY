@@ -18,7 +18,23 @@ def partition(array, start, end):
         
     swap(array, pivot_index, end)
 
-    return end
+    return start
+
+def lomuto_partition(array, start, end):
+    pivot = array[end]
+    j = start
+    i = start - 1
+    while j < end:
+        while array[j] >= pivot and j < end:
+            j += 1
+        i += 1
+        swap(array, i, j)
+        j += 1
+    i += 1
+    swap(array, i, end)
+
+    return i
+
 
 def swap(array, a, b):
     if a != b:
